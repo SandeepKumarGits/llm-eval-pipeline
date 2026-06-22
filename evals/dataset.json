@@ -1,0 +1,52 @@
+[
+  {
+    "question": "When was Acme Corp founded?",
+    "context": "Acme Corp was founded in 1998 by Jane Smith in Austin, Texas. The company started as a small consulting firm before expanding into software development in 2003.",
+    "expected_output": "Acme Corp was founded in 1998."
+  },
+  {
+    "question": "Who is the CEO of TechStart?",
+    "context": "TechStart announced record quarterly earnings today. CEO Maria Garcia credited the growth to their new AI product line launched in Q2. The company employs over 5,000 people across 12 offices worldwide.",
+    "expected_output": "Maria Garcia is the CEO of TechStart."
+  },
+  {
+    "question": "What programming language is the backend written in?",
+    "context": "The application architecture consists of a React frontend with TypeScript, a Python backend using FastAPI, and a PostgreSQL database. Redis is used for caching frequently accessed queries.",
+    "expected_output": "The backend is written in Python using FastAPI."
+  },
+  {
+    "question": "How many users does the platform have?",
+    "context": "As of March 2024, the platform serves 2.3 million monthly active users. Daily active users average around 890,000, with peak usage occurring between 9am and 11am EST.",
+    "expected_output": "The platform has 2.3 million monthly active users."
+  },
+  {
+    "question": "What caused the outage on January 15th?",
+    "context": "Post-mortem report: On January 15th, a misconfigured load balancer rule caused all traffic to route to a single instance, which became overwhelmed within minutes. The incident lasted 47 minutes and affected approximately 12% of users.",
+    "expected_output": "A misconfigured load balancer rule caused all traffic to route to a single instance, overwhelming it."
+  },
+  {
+    "question": "What is the company's return policy?",
+    "context": "Customers may return unused items within 30 days of purchase for a full refund. Items must be in original packaging. Electronics have a 15-day return window. Sale items are final sale and cannot be returned.",
+    "expected_output": "Unused items can be returned within 30 days for a full refund (must be in original packaging). Electronics have a 15-day window. Sale items are final sale."
+  },
+  {
+    "question": "What machine learning model does the system use?",
+    "context": "Our recommendation engine uses a collaborative filtering approach combined with a gradient-boosted decision tree (XGBoost) for ranking. The model is retrained weekly on user interaction data.",
+    "expected_output": "The system uses collaborative filtering combined with XGBoost (gradient-boosted decision tree) for ranking."
+  },
+  {
+    "question": "What is the speed of light?",
+    "context": "The Great Wall of China is approximately 13,171 miles long. Construction began in the 7th century BC and continued for over 2,000 years across multiple dynasties.",
+    "expected_output": "The answer is not available in the provided context."
+  },
+  {
+    "question": "What are the system requirements?",
+    "context": "Minimum requirements: 8GB RAM, 4-core CPU, 50GB free disk space, Ubuntu 22.04 or later. Recommended: 16GB RAM, 8-core CPU, SSD storage. Docker 24+ must be installed.",
+    "expected_output": "Minimum: 8GB RAM, 4-core CPU, 50GB disk, Ubuntu 22.04+. Recommended: 16GB RAM, 8-core CPU, SSD. Docker 24+ required."
+  },
+  {
+    "question": "How much funding did the startup raise?",
+    "context": "Nova AI closed its Series B round at $45 million, led by Sequoia Capital with participation from Andreessen Horowitz. This brings total funding to $62 million since the company's founding in 2021.",
+    "expected_output": "Nova AI raised $45 million in its Series B round, bringing total funding to $62 million."
+  }
+]
