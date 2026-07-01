@@ -1,5 +1,6 @@
 import json
 import os
+import time
 from pathlib import Path
 
 import httpx
@@ -30,7 +31,9 @@ def call_endpoint(question: str, context: str) -> str:
 def test_cases() -> list[LLMTestCase]:
     dataset = load_dataset()
     cases = []
-    for item in dataset:
+    for i, item in enumerate(dataset):
+        if i > 0:
+            time.sleep(5)
         actual_output = call_endpoint(item["question"], item["context"])
         cases.append(
             LLMTestCase(
