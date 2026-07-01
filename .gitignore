@@ -8,3 +8,5 @@ build/
 .deepeval/
 .venv/
 venv/
+*.json
+!evals/dataset.json
