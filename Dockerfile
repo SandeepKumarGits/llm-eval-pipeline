@@ -12,5 +12,6 @@ COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/pytho
 COPY --from=builder /usr/local/bin/uvicorn /usr/local/bin/uvicorn
 COPY src/ ./src/
 
+ENV PORT=8080
 EXPOSE 8080
-CMD ["uvicorn", "grounded_qa.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD uvicorn grounded_qa.main:app --host 0.0.0.0 --port $PORT

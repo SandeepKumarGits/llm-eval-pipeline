@@ -3,6 +3,8 @@ name: Deploy and Evaluate
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 env:
   GCP_REGION: us-central1
@@ -10,7 +12,26 @@ env:
   IMAGE_NAME: us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/llm-eval-pipeline/grounded-qa
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run unit tests
+        run: pytest tests/ -v
+
   build-deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       service_url: ${{ steps.deploy.outputs.url }}
@@ -62,8 +83,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install eval dependencies
-        run: pip install ".[eval]"
+      - name: Install dependencies
+        run: pip install -e .
 
       - name: Run DeepEval evaluation suite
         env:
