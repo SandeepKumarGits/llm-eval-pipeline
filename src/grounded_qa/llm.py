@@ -5,8 +5,8 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 
 logger = logging.getLogger("grounded_qa.llm")
 
-# Default model, kept as module constant for backwards compatibility
-GEMINI_MODEL = "gemini-2.0-flash"
+# Default model — use 2.5-flash which has active free tier quota
+GEMINI_MODEL = "gemini-2.5-flash"
 
 SYSTEM_PROMPT = (
     "You are a precise Q&A assistant. Answer the user's question using ONLY the provided context. "

@@ -2,9 +2,9 @@ name: Deploy and Evaluate
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 env:
   GCP_REGION: us-central1
@@ -31,7 +31,7 @@ jobs:
 
   build-deploy:
     needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     outputs:
       service_url: ${{ steps.deploy.outputs.url }}
@@ -67,6 +67,7 @@ jobs:
           flags: --allow-unauthenticated
           env_vars: |
             GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+            GEMINI_MODEL=gemini-2.5-flash
 
       - name: Verify deployment
         run: curl --fail --silent --show-error "${{ steps.deploy.outputs.url }}/health"
